@@ -11,7 +11,7 @@ EXECMEMSWEEP=memsweep.sh
 EXECDD=diskdump.sh
 EXECFIO=fio.sh
 DATE=$(date +%m-%d-%y)
-WAITTIME=900
+WAITTIME=90
 SUFLIN=$(ls ${OUTLIN}*.out 2>/dev/null | wc -l)
 SUFMEMSWEEP=$(ls ${OUTMEMSWEEP}*.out 2>/dev/null | wc -l)
 SUFDD=$(ls ${OUTDD}*.out 2>/dev/null | wc -l)
@@ -27,6 +27,7 @@ ${workdir}/repeatexec.sh ${NUMTIMES} ${workdir}/${EXECMEMSWEEP} | ${workdir}/tim
 for i in $(seq 1 1 $2)
 do
 	./${EXECDD} 2>&1 | ${workdir}/timestamp.sh | tee -a ${PWD}/${OUTDD}_${DATE}_${SUFDD}.out
+        sleep ${WAITTIME}
         ./${EXECFIO} 2>&1 | ${workdir}/timestamp.sh | tee -a ${PWD}/${OUTFIO}_${DATE}_${SUFFIO}.out
 	sleep ${WAITTIME}
 done
