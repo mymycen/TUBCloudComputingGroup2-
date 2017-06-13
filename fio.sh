@@ -1,9 +1,9 @@
 # Change this variable to the path of the device you want to test
 block_dev=/dev/vda
 
-# install dependencies
-#sudo apt-get -y update
-#sudo apt-get install -y fio
+
+
+
 
 # full write pass
 sudo fio --name=writefile --size=10G --filesize=10G \
