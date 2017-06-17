@@ -1,0 +1,100 @@
+06/17/17-20:19:00: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:19:35: 1048576+0 records in
+06/17/17-20:19:35: 1048576+0 records out
+06/17/17-20:19:35: 4294967296 bytes transferred in 34.175342 secs (125674450 bytes/sec)
+06/17/17-20:21:05: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:21:37: 1048576+0 records in
+06/17/17-20:21:37: 1048576+0 records out
+06/17/17-20:21:37: 4294967296 bytes transferred in 32.440903 secs (132393581 bytes/sec)
+06/17/17-20:23:07: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:23:40: 1048576+0 records in
+06/17/17-20:23:40: 1048576+0 records out
+06/17/17-20:23:40: 4294967296 bytes transferred in 33.433683 secs (128462285 bytes/sec)
+06/17/17-20:25:11: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:25:46: 1048576+0 records in
+06/17/17-20:25:46: 1048576+0 records out
+06/17/17-20:25:46: 4294967296 bytes transferred in 35.173583 secs (122107756 bytes/sec)
+06/17/17-20:27:16: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:27:49: 1048576+0 records in
+06/17/17-20:27:49: 1048576+0 records out
+06/17/17-20:27:49: 4294967296 bytes transferred in 33.374407 secs (128690445 bytes/sec)
+06/17/17-20:29:19: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:29:51: 1048576+0 records in
+06/17/17-20:29:51: 1048576+0 records out
+06/17/17-20:29:51: 4294967296 bytes transferred in 32.341911 secs (132798810 bytes/sec)
+06/17/17-20:31:21: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:31:54: 1048576+0 records in
+06/17/17-20:31:54: 1048576+0 records out
+06/17/17-20:31:54: 4294967296 bytes transferred in 32.043244 secs (134036594 bytes/sec)
+06/17/17-20:33:24: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:33:56: 1048576+0 records in
+06/17/17-20:33:56: 1048576+0 records out
+06/17/17-20:33:56: 4294967296 bytes transferred in 32.280487 secs (133051503 bytes/sec)
+06/17/17-20:35:26: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:35:58: 1048576+0 records in
+06/17/17-20:35:58: 1048576+0 records out
+06/17/17-20:35:58: 4294967296 bytes transferred in 32.173700 secs (133493111 bytes/sec)
+06/17/17-20:37:28: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:38:00: 1048576+0 records in
+06/17/17-20:38:00: 1048576+0 records out
+06/17/17-20:38:00: 4294967296 bytes transferred in 32.180838 secs (133463500 bytes/sec)
+06/17/17-20:39:30: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:40:03: 1048576+0 records in
+06/17/17-20:40:03: 1048576+0 records out
+06/17/17-20:40:03: 4294967296 bytes transferred in 32.317959 secs (132897232 bytes/sec)
+06/17/17-20:41:33: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:42:05: 1048576+0 records in
+06/17/17-20:42:05: 1048576+0 records out
+06/17/17-20:42:05: 4294967296 bytes transferred in 32.160543 secs (133547723 bytes/sec)
+06/17/17-20:43:35: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:44:07: 1048576+0 records in
+06/17/17-20:44:07: 1048576+0 records out
+06/17/17-20:44:07: 4294967296 bytes transferred in 32.334617 secs (132828766 bytes/sec)
+06/17/17-20:45:37: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:46:10: 1048576+0 records in
+06/17/17-20:46:10: 1048576+0 records out
+06/17/17-20:46:10: 4294967296 bytes transferred in 32.303125 secs (132958260 bytes/sec)
+06/17/17-20:47:40: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:48:12: 1048576+0 records in
+06/17/17-20:48:12: 1048576+0 records out
+06/17/17-20:48:12: 4294967296 bytes transferred in 32.241055 secs (133214229 bytes/sec)
+06/17/17-20:49:42: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:50:14: 1048576+0 records in
+06/17/17-20:50:14: 1048576+0 records out
+06/17/17-20:50:14: 4294967296 bytes transferred in 32.261857 secs (133128335 bytes/sec)
+06/17/17-20:51:44: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:52:17: 1048576+0 records in
+06/17/17-20:52:17: 1048576+0 records out
+06/17/17-20:52:17: 4294967296 bytes transferred in 32.983919 secs (130213977 bytes/sec)
+06/17/17-20:53:47: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:54:20: 1048576+0 records in
+06/17/17-20:54:20: 1048576+0 records out
+06/17/17-20:54:20: 4294967296 bytes transferred in 32.525469 secs (132049359 bytes/sec)
+06/17/17-20:55:50: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:56:22: 1048576+0 records in
+06/17/17-20:56:22: 1048576+0 records out
+06/17/17-20:56:22: 4294967296 bytes transferred in 32.319697 secs (132890085 bytes/sec)
+06/17/17-20:57:52: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-20:58:24: 1048576+0 records in
+06/17/17-20:58:24: 1048576+0 records out
+06/17/17-20:58:24: 4294967296 bytes transferred in 32.032010 secs (134083602 bytes/sec)
+06/17/17-20:59:54: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-21:00:26: 1048576+0 records in
+06/17/17-21:00:26: 1048576+0 records out
+06/17/17-21:00:26: 4294967296 bytes transferred in 32.393362 secs (132587884 bytes/sec)
+06/17/17-21:02:12: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-21:12:36: 1048576+0 records in
+06/17/17-21:12:36: 1048576+0 records out
+06/17/17-21:12:36: 4294967296 bytes transferred in 623.686102 secs (6886425 bytes/sec)
+06/17/17-21:14:08: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-21:14:41: 1048576+0 records in
+06/17/17-21:14:41: 1048576+0 records out
+06/17/17-21:14:41: 4294967296 bytes transferred in 32.488954 secs (132197771 bytes/sec)
+06/17/17-21:16:11: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-21:16:43: 1048576+0 records in
+06/17/17-21:16:43: 1048576+0 records out
+06/17/17-21:16:43: 4294967296 bytes transferred in 32.255888 secs (133152970 bytes/sec)
+06/17/17-21:18:13: Reading 4.3G of data from /dev/disk0 (must run as root)
+06/17/17-21:18:45: 1048576+0 records in
+06/17/17-21:18:45: 1048576+0 records out
+06/17/17-21:18:45: 4294967296 bytes transferred in 32.294857 secs (132992299 bytes/sec)
