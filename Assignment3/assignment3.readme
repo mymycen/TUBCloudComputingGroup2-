@@ -1,0 +1,37 @@
+ Project Assignment 3 Submission
+  ● Submission for this assignment: .zip file
+● Directory and file structure exactly like
+├── Backend
+│ ├── docker-compose.yml
+│ ├── Dockerfile
+│ ├── fix-nginx-conf.sh
+│ └── nginx.conf ├── Frontend
+│ ├── docker-compose.yml
+├── Dockerfile
+│ ├── fix-nginx-conf.sh
+│ └── nginx.conf ├── Scripts
+│ ├── openstack-cleanup.sh
+│ └── test-deployment.py ├── create-stack.sh
+├── init-swarm.sh
+├── server-landscape.yaml └── server.yaml
+← Must be completed ← Must be completed
+← Must be completed ← Must be completed
+the provided assignment3-resources.zip file. │
+● You have to complete parts of the provided files (replace [[TODO]])
+● Your solution will mostly be graded by automated scripts.
+● Hint:
+○ server-landscape.yaml is an extended version
+of the “solution” for the Heat stack you developed in assignment 2
+
+ Docker
+● Uses containers: a lightweight form of virtualization
+● Containers share the same kernel, but are not aware of each other
+● Can be used inside VMs to combine the benefits of both virtualization
+techniques
+● Defines format for containers and tool chain for managing containers,
+uploading them to container registries for sharing, etc.
+● Docker compose: describes how to run a service based on a container image
+● Docker swarm: runs service stacks distributed on multiple docker hosts
+ ● nginx: Open-Source HTTP server similar to Apache ○ Used as service-layer in this assignment
+ 
+ 
