@@ -35,3 +35,7 @@ uploading them to container registries for sharing, etc.
  ● nginx: Open-Source HTTP server similar to Apache ○ Used as service-layer in this assignment
  
  
+Solution:
+Team has been created in Docker Hub to upload Docker images. 
+https://hub.docker.com/u/cc17g2/dashboard/teams/?team=owners
+
