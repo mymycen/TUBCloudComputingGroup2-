@@ -1,1 +1,18 @@
-[[TODO]]
+version: '1'
+services:
+  web:
+    build: .
+    dockerfile: Dockerfile
+    ports:
+        - "80:80"
+    volumes:
+        - /etc:/hypervisor_etc
+    image: cc17g2/frontend
+    deploy:
+      replicas: 2
+    placement:
+        constraints: [node.hostname = CCG2_A3_Stack-frontend]
+    autorestart: ON_FAILURE
+    environment:
+        -  CC_BACKEND_SERVERS: ${CC_BACKEND_SERVERS}
+  
