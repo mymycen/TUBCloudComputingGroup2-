@@ -12,7 +12,9 @@ export LC_MASTER_PRIVATE=$(openstack stack output show CCG2_A3_Stack private_ip 
 export LC_BACKEND_IPS=$(openstack stack output show CCG2_A3_Stack backend_ips -f value | tail -n +3 | jq -r ".| @tsv")
 
 # Copy both docker-compose files to the frontend server
-cp  Frontend/docker-compose.yml Backend/docker-compose.yml /etc
+#cp  Frontend/docker-compose.yml Backend/docker-compose.yml /etc
+# cp /Frontend/docker-compose.yml /Backend/docker-compose.yml /home/ubuntu
+scp -r -i ~/Frontend/docker-compose.yml ~/Backend/docker-compose.yml ubuntu@$MASTER_FLOATING:~/
 
 # Define a multi-line variable containing the script to be executed on the frontend machine.
 # The tasks of this script:
@@ -33,7 +35,7 @@ SSHOPTS="-o StrictHostKeyChecking=no -o ConnectTimeout=3 -o BatchMode=yes"
 ssh-keyscan $LC_BACKEND_IPS > ~/.ssh/known_hosts
 
 # Obtain a token that can be used to join the swarm as a worker
-TOKEN=$(sudo docker swarm join-token worker)
+TOKEN=$(sudo docker swarm join-token -q worker)
 
 # Prepare the script to execute on the backends to join the docker swarm.
 # First make sure that docker is running properly...
@@ -42,25 +44,22 @@ backend_setup_1="{ sudo docker ps &> /dev/null || sudo service docker restart; }
 # ... then join the docker swarm on the frontend server
 backend_setup_2="sudo docker swarm join --token $TOKEN $LC_MASTER_PRIVATE:2377"
 
+          
 # Connect to the backend servers and make them join the swarm
 for i in $LC_BACKEND_IPS; do ssh $SSHOPTS ubuntu@$i "$backend_setup_1 && $backup_setup_2"; done
-
+         
 # Launch the backend stack
 # sudo -E docker [[TODO]]
-
+             
 # Launch the frontend stack
 export CC_BACKEND_SERVERS="$LC_BACKEND_IPS"
 # sudo -E docker [[TODO]]
-
+    
 xxxxxxxxxxxxxxxxx
 
 # Print the script for debugging purposes
 echo -e "\nRunning the following script on $MASTER_FLOATING:\n\n$INIT_SCRIPT\n"
-
+    
 # Execute the script on the frontend server. Make sure to pass along the two variables obtained from OpenStack above.
 # Those variables are named LC_* because the default sshd config allows sending variables named like this.
 ssh -o SendEnv="LC_MASTER_PRIVATE LC_BACKEND_IPS" -A ubuntu@$MASTER_FLOATING "$INIT_SCRIPT"
-
-echo
-echo "If everything worked so far, you can execute the following to test your setup:"
-echo "python3 Scripts/test-deployment.py $MASTER_FLOATING"

@@ -11,5 +11,4 @@ EXPOSE 80
 #ARG CC_BACKEND_SERVERS
 ENV CC_BACKEND_SERVERS CCG2_A3_Stack-backend-0 CCG2_A3_Stack-backend-1
 # Run when the container launches
-#CMD ["/etc/nginx/fix-nginx-conf.sh $CC_BACKEND_SERVERS"]
 CMD ["/bin/bash" , "-c" ,"/etc/nginx/fix-nginx-conf.sh CC_BACKEND_SERVERS && nginx"]
