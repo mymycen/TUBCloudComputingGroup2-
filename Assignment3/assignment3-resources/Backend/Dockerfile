@@ -20,7 +20,7 @@ WORKDIR /home/ubuntu
 # RUN pip install -r requirements.txt
 
 # Make port 80 available to the world outside this container
-EXPOSE 80
+EXPOSE 8000
 
 # Define environment variable
 # ENV CC_BACKEND_SERVERS CCG2_A3_Stack-backend-0 CCG2_A3_Stack-backend-1
