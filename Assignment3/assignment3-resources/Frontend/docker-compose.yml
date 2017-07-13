@@ -1,18 +1,20 @@
-version: '1'
+version: "3.2"
 services:
-  web:
-    build: .
-    dockerfile: Dockerfile
+  web_frontend:
+    image: cc17g2/frontend_th1
+    deploy:
+      replicas: 2
+      placement:
+        constraints:
+            - node.hostname == CCG2_A3_Stack-frontend
     ports:
         - "80:80"
     volumes:
         - /etc:/hypervisor_etc
-    image: cc17g2/frontend
-    deploy:
-      replicas: 2
-    placement:
-        constraints: [node.hostname = CCG2_A3_Stack-frontend]
-    autorestart: ON_FAILURE
+    
+    restart: always
     environment:
-        -  CC_BACKEND_SERVERS: ${CC_BACKEND_SERVERS}
-  
+        - CC_BACKEND_SERVERS= ${CC_BACKEND_SERVERS}
+    labels:
+        com.cc17g2.Frontend: "Frontend Stack" 
+

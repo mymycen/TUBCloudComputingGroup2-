@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Check parameters
 test $# = 1 || { echo "Need 1 parameter: name of stack that was created with server-landscape.yaml"; exit 1; }
 STACK="$1"
@@ -14,7 +13,8 @@ export LC_BACKEND_IPS=$(openstack stack output show CCG2_A3_Stack backend_ips -f
 # Copy both docker-compose files to the frontend server
 #cp  Frontend/docker-compose.yml Backend/docker-compose.yml /etc
 # cp /Frontend/docker-compose.yml /Backend/docker-compose.yml /home/ubuntu
-scp -r -i ~/Frontend/docker-compose.yml ~/Backend/docker-compose.yml ubuntu@$MASTER_FLOATING:~/
+scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Frontend/docker-compose.yml ubuntu@10.200.2.93:~/Frontend
+scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Backend/docker-compose.yml ubuntu@10.200.2.93:~/Backend
 
 # Define a multi-line variable containing the script to be executed on the frontend machine.
 # The tasks of this script:
@@ -46,14 +46,14 @@ backend_setup_2="sudo docker swarm join --token $TOKEN $LC_MASTER_PRIVATE:2377"
 
           
 # Connect to the backend servers and make them join the swarm
-for i in $LC_BACKEND_IPS; do ssh $SSHOPTS ubuntu@$i "$backend_setup_1 && $backup_setup_2"; done
+for i in $LC_BACKEND_IPS; do ssh $SSHOPTS ubuntu@$i "$backend_setup_1 && $backend_setup_2"; done
          
 # Launch the backend stack
-# sudo -E docker [[TODO]]
+sudo -E docker stack deploy --compose-file=Backend/docker-compose.yml CCG2_A3_Stack
              
 # Launch the frontend stack
 export CC_BACKEND_SERVERS="$LC_BACKEND_IPS"
-# sudo -E docker [[TODO]]
+sudo -E docker stack deploy --compose-file=Frontend/docker-compose.yml CCG2_A3_Stack
     
 xxxxxxxxxxxxxxxxx
 
