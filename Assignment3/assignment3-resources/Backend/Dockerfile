@@ -5,8 +5,8 @@ FROM nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy file fix-nginx-conf.sh to an arbitrary location 
-#COPY fix-nginx-conf.sh /etc/nginx/fix-nginx-conf.sh
 COPY fix-nginx-conf.sh /home/ubuntu/fix-nginx-conf.sh
+
 # They must expose port 80
 EXPOSE 80
 
@@ -17,5 +17,4 @@ VOLUME  /hypervisor_etc
 WORKDIR /home/ubuntu
 
 # Run when the container launches 
-#CMD  ["/bin/bash" , "-c" , "/etc/nginx/fix-nginx-conf.sh && nginx"]
 CMD ./fix-nginx-conf.sh && nginx
