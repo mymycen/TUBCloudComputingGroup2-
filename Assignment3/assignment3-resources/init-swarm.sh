@@ -6,9 +6,9 @@ STACK="$1"
 # Obtain information from OpenStack. It is important that the last two variables are named LC_* (see last comment in this script).
 # The three variables correspond to output variables of the server-landscape.yaml template.
 echo "Obtainining information about stack ${STACK}..."
-export MASTER_FLOATING=$(openstack stack output show CCG2_A3_Stack floating_ip -f value | tail -n +3)
-export LC_MASTER_PRIVATE=$(openstack stack output show CCG2_A3_Stack private_ip -f value | tail -n +3)
-export LC_BACKEND_IPS=$(openstack stack output show CCG2_A3_Stack backend_ips -f value | tail -n +3 | jq -r ".| @tsv")
+export MASTER_FLOATING=$(openstack stack output show ${STACK} floating_ip -f value | tail -n +3)
+export LC_MASTER_PRIVATE=$(openstack stack output show ${STACK} private_ip -f value | tail -n +3)
+export LC_BACKEND_IPS=$(openstack stack output show ${STACK} backend_ips -f value | tail -n +3 | jq -r ".| @tsv")
 
 # Copy both docker-compose files to the frontend server
 #cp  Frontend/docker-compose.yml Backend/docker-compose.yml /etc
@@ -49,11 +49,11 @@ backend_setup_2="sudo docker swarm join --token $TOKEN $LC_MASTER_PRIVATE:2377"
 for i in $LC_BACKEND_IPS; do ssh $SSHOPTS ubuntu@$i "$backend_setup_1 && $backend_setup_2"; done
          
 # Launch the backend stack
-sudo -E docker stack deploy -c docker-compose-backend.yml CCG2_A3_Stack_Backend_Services
+sudo -E docker stack deploy -c docker-compose-backend.yml Backend_Services
              
 # Launch the frontend stack
 export CC_BACKEND_SERVERS="$LC_BACKEND_IPS"
-sudo -E docker stack deploy -c docker-compose-frontend.yml CCG2_A3_Stack_Frontend_Services
+sudo -E docker stack deploy -c docker-compose-frontend.yml Frontend_Services
     
 xxxxxxxxxxxxxxxxx
 
