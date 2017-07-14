@@ -13,8 +13,8 @@ export LC_BACKEND_IPS=$(openstack stack output show CCG2_A3_Stack backend_ips -f
 # Copy both docker-compose files to the frontend server
 #cp  Frontend/docker-compose.yml Backend/docker-compose.yml /etc
 # cp /Frontend/docker-compose.yml /Backend/docker-compose.yml /home/ubuntu
-scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Frontend/docker-compose.yml ubuntu@10.200.2.93:~/Frontend
-scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Backend/docker-compose.yml ubuntu@10.200.2.93:~/Backend
+scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Frontend/docker-compose.yml ubuntu@$MASTER_FLOATING:~/docker-compose-frontend.yml
+scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Backend/docker-compose.yml ubuntu@$MASTER_FLOATING:~/docker-compose-backend.yml
 
 # Define a multi-line variable containing the script to be executed on the frontend machine.
 # The tasks of this script:
@@ -49,11 +49,11 @@ backend_setup_2="sudo docker swarm join --token $TOKEN $LC_MASTER_PRIVATE:2377"
 for i in $LC_BACKEND_IPS; do ssh $SSHOPTS ubuntu@$i "$backend_setup_1 && $backend_setup_2"; done
          
 # Launch the backend stack
-sudo -E docker stack deploy --compose-file=Backend/docker-compose.yml CCG2_A3_Stack
+sudo -E docker stack deploy -c docker-compose-backend.yml CCG2_A3_Stack_Backend_Services
              
 # Launch the frontend stack
 export CC_BACKEND_SERVERS="$LC_BACKEND_IPS"
-sudo -E docker stack deploy --compose-file=Frontend/docker-compose.yml CCG2_A3_Stack
+sudo -E docker stack deploy -c docker-compose-frontend.yml CCG2_A3_Stack_Frontend_Services
     
 xxxxxxxxxxxxxxxxx
 
@@ -63,3 +63,9 @@ echo -e "\nRunning the following script on $MASTER_FLOATING:\n\n$INIT_SCRIPT\n"
 # Execute the script on the frontend server. Make sure to pass along the two variables obtained from OpenStack above.
 # Those variables are named LC_* because the default sshd config allows sending variables named like this.
 ssh -o SendEnv="LC_MASTER_PRIVATE LC_BACKEND_IPS" -A ubuntu@$MASTER_FLOATING "$INIT_SCRIPT"
+
+echo
+echo "If everything worked so far, you can execute the following to test your setup:"
+echo "python3 Scripts/test-deployment.py $MASTER_FLOATING"
+
+
