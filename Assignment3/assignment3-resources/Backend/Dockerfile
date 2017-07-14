@@ -1,19 +1,21 @@
-# Use an official nginx as a parent image
+# Using an official nginx(web server) container image
 FROM nginx
 
- ADD nginx.conf /etc/nginx/nginx.conf
- 
- ADD fix-nginx-conf.sh /etc/nginx/fix-nginx-conf.sh
+# The file  nginx.conf must be available inside the container as /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
- VOLUME /hypervisor_etc
+# Copy file fix-nginx-conf.sh to an arbitrary location 
+#COPY fix-nginx-conf.sh /etc/nginx/fix-nginx-conf.sh
+COPY fix-nginx-conf.sh /home/ubuntu/fix-nginx-conf.sh
+# They must expose port 80
+EXPOSE 80
+
+#  Define a volume named  /hypervisor_etc
+VOLUME  /hypervisor_etc
 
 # Set the working directory to /home/ubuntu
 WORKDIR /home/ubuntu
 
-
-# Make port 80 available to the world outside this container
-EXPOSE 80
-
-# Run app.py when the container launches
-
-CMD ["/bin/bash" , "-c" , "/etc/nginx/fix-nginx-conf.sh && nginx"]
+# Run when the container launches 
+#CMD  ["/bin/bash" , "-c" , "/etc/nginx/fix-nginx-conf.sh && nginx"]
+CMD ./fix-nginx-conf.sh && nginx
