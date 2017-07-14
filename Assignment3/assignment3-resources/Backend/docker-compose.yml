@@ -1,20 +1,16 @@
 version: "3.2"
 services:
-  web_backend:
-    image: cc17g2/backend_th1
+  web:
+    image: cc17g2/image_backend
     deploy:
       replicas: 5
+      restart_policy:
+        condition: on-failure
       placement:
         constraints:
-            - node.hostname != CCG2_A3_Stack-frontend
+          - node.hostname != ccg2-a3-stack-frontend
     ports:
-        - "8000:80"
+      - "8000:80"
     volumes:
-        - /etc:/hypervisor_etc
-    
-    restart: always
-    environment:
-        - CC_BACKEND_SERVERS = ${CC_BACKEND_SERVERS}
-    labels:
-        com.cc17g2.Backend: "Backend Stack" 
+      - /etc:/hypervisor_etc
         
