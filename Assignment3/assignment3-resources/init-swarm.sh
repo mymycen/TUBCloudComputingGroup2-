@@ -11,8 +11,6 @@ export LC_MASTER_PRIVATE=$(openstack stack output show ${STACK} private_ip -f va
 export LC_BACKEND_IPS=$(openstack stack output show ${STACK} backend_ips -f value | tail -n +3 | jq -r ".| @tsv")
 
 # Copy both docker-compose files to the frontend server
-#cp  Frontend/docker-compose.yml Backend/docker-compose.yml /etc
-# cp /Frontend/docker-compose.yml /Backend/docker-compose.yml /home/ubuntu
 scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Frontend/docker-compose.yml ubuntu@$MASTER_FLOATING:~/docker-compose-frontend.yml
 scp ~/TUBCloudComputingGroup2/Assignment3/assignment3-resources/Backend/docker-compose.yml ubuntu@$MASTER_FLOATING:~/docker-compose-backend.yml
 
